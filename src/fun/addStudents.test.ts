@@ -17,3 +17,19 @@ it("2", () => {
 it("3", () => {
 	expect(addStudents(["Vadi", "Anna"], ["Anna"])).toEqual(["Vadi", "Anna"]);
 });
+
+it("4", () => {
+	expect(addStudents(["Vadi", "Anna"], ["Béla", ""])).toEqual([
+		"Vadi",
+		"Anna",
+		"Béla",
+	]);
+});
+
+it("5", () => {
+	expect(addStudents(["Vadi", "Anna"], ["Béla", "	   "])).toEqual([
+		"Vadi",
+		"Anna",
+		"Béla",
+	]);
+});

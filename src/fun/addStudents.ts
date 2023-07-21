@@ -10,7 +10,8 @@ export function addStudents(
 	//	return [...students, ...newStudents];
 	let result: string[] = [...students];
 	for (let student of newStudents) {
-		if (contains(result, student) == false) {
+		student = student.trim();
+		if (!contains(result, student) && student != "") {
 			result.push(student);
 		}
 	}
