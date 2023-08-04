@@ -21,21 +21,19 @@ export function groupStudents(
 	let classes = classifyStudents(students);
 	if (classes.vadi != undefined) {
 		//Vadi itt van
-		// az első csoport Vadié, oda tesszük őt
-		groups[0].push(classes.vadi);
-		// ez a csoport sorszáma ahová a következő diákot tesszük, először a Vadi csoportját követő csoportba
-		let groupIndex = 1;
+		// ez a csoport sorszáma ahová a következő diákot tesszük, először az első csoportba
+		let groupIndex = 0;
 		// itt fogjuk tárolni a megmaradt diákokat
 		let remainingNormalStudents = classes.normalStudents;
 		let remainingEvilStudents = classes.evilStudents;
 		// annyiszor húzunk diákot, ahány diák van Vadin kívül
-		for (let n = 0; n < students.length - 1; n++) {
+		for (let n = 0; n < students.length; n++) {
 			// kivesszük a soronkövetkező csoportot, ahová a diákot fogjuk tenni
 			let group = groups[groupIndex];
 			// kihúzunk egy diákot a  megmaradt diákok közül és megkapjuk a diákot és a megmaradt diákokat
 			let result;
 			// megállapítjuk, hogy ez Vadi csoportja e
-			let isVadisGroup = groupIndex == 0;
+			let isVadisGroup = groupIndex == groupCount - 1;
 			// megállapítjuk, hogy van e még normális diák
 			let haveNormalStudents = remainingNormalStudents.length > 0;
 			// megállapítjuk, hogy van e még gonosz diák
@@ -48,7 +46,10 @@ export function groupStudents(
 			// 	remainingEvilStudents = result.students;
 			// }
 			if (isVadisGroup) {
-				if (haveNormalStudents) {
+				if (group.length == 0) {
+					// vadi csoportjába az első húzás Vadi
+					result = { student: classes.vadi };
+				} else if (haveNormalStudents) {
 					// a normális diákok közül húzunk
 					result = pullRandomStudent(remainingNormalStudents);
 					remainingNormalStudents = result.students;
