@@ -7,7 +7,7 @@ console.log(
 			"Anna",
 			"Béla",
 			"Cecil",
-			"Dezső",
+			// "Dezső",
 			"Leó",
 			"Kolos",
 			"Kornél",
@@ -15,6 +15,6 @@ console.log(
 			"Beki",
 			"Áron",
 		],
-		2
+		4
 	)
 );

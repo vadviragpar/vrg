@@ -88,6 +88,10 @@ export function groupStudents(
 		// összekeverjük Vadi csoportjának elemeit, majd az összekevert csoportot betesszük az eredeti helyére
 		let vadisGroupShuffled = shuffle(vadisGroup);
 		groups[groupCount - 1] = vadisGroupShuffled;
+		// összekeverjük a csoportokat
+		groups = shuffle(groups);
+		// a végére rendezzük a rövidebb csoportokat
+		groups.sort((a, z) => z.length - a.length);
 	} else {
 		//Vadi nincs itt
 		// ez a csoport sorszáma ahová a következő diákot tesszük, először az első csoportba
