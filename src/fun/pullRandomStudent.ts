@@ -8,6 +8,9 @@ export function pullRandomStudent(students: string[]): {
 	student: string;
 	students: string[];
 } {
+	if (students.length == 0) {
+		throw new Error("Nem tudok húzni egy üres array-bol");
+	}
 	// egy diák véletenszerűen kiválasztott sorszáma
 	let index = getRandomInt(students.length);
 	// kivesszük a diákot
