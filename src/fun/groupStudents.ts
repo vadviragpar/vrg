@@ -1,5 +1,6 @@
 import { classifyStudents } from "./classifyStudents";
 import { pullRandomStudent } from "./pullRandomStudent";
+import { shuffle } from "./shuffle";
 /**
  * annyi csoportba sorolja a diákokat ahányat szeretnénk
  * @param students összes jelenlévő diák
@@ -82,6 +83,10 @@ export function groupStudents(
 				groupIndex = 0;
 			}
 		}
+		// kiveeszük Vadi csoportját
+		let vadisGroup = groups[groupCount - 1];
+		// összekeverjük Vadi csoportjának elemeit, majd az összekevert csoportot betesszük az eredeti helyére
+		groups[groupCount - 1] = shuffle(vadisGroup);
 	} else {
 		//Vadi nincs itt
 		// ez a csoport sorszáma ahová a következő diákot tesszük, először az első csoportba
