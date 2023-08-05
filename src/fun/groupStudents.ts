@@ -27,6 +27,18 @@ export function groupStudents(
 		// itt fogjuk tárolni a megmaradt diákokat
 		let remainingNormalStudents = classes.normalStudents;
 		let remainingEvilStudents = classes.evilStudents;
+		//a nagyobb csoportokban található diákok száma
+		let studentsPerGroup = Math.ceil(students.length / groups.length);
+		// Vadi számára előnyös csoport maximális létszáma
+		let vadisGroupMaxStudentCount = 1 + classes.normalStudents.length;
+		// itt tároljuk Vadi csoportjának sorszámát
+		let vadisGroupIndex;
+		// ha vannak kis csoportok, de nem elég a normális diák egy nagy csoport feltöltéséhez, akkor Vadi egy kis csoportba kerüljön (az utolsó biztosan az)
+		if (studentsPerGroup - 1 == vadisGroupMaxStudentCount) {
+			vadisGroupIndex = groupCount - 1;
+		} else {
+			vadisGroupIndex = 0;
+		}
 		// annyiszor húzunk diákot, ahány diák van Vadin kívül
 		for (let n = 0; n < students.length; n++) {
 			// kivesszük a soronkövetkező csoportot, ahová a diákot fogjuk tenni
@@ -34,7 +46,7 @@ export function groupStudents(
 			// kihúzunk egy diákot a  megmaradt diákok közül és megkapjuk a diákot és a megmaradt diákokat
 			let result;
 			// megállapítjuk, hogy ez Vadi csoportja e
-			let isVadisGroup = groupIndex == groupCount - 1;
+			let isVadisGroup = groupIndex == vadisGroupIndex;
 			// megállapítjuk, hogy van e még normális diák
 			let haveNormalStudents = remainingNormalStudents.length > 0;
 			// megállapítjuk, hogy van e még gonosz diák
@@ -84,10 +96,10 @@ export function groupStudents(
 			}
 		}
 		// kiveeszük Vadi csoportját
-		let vadisGroup = groups[groupCount - 1];
+		let vadisGroup = groups[vadisGroupIndex];
 		// összekeverjük Vadi csoportjának elemeit, majd az összekevert csoportot betesszük az eredeti helyére
 		let vadisGroupShuffled = shuffle(vadisGroup);
-		groups[groupCount - 1] = vadisGroupShuffled;
+		groups[vadisGroupIndex] = vadisGroupShuffled;
 		// összekeverjük a csoportokat
 		groups = shuffle(groups);
 		// a végére rendezzük a rövidebb csoportokat
