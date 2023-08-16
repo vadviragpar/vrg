@@ -1,6 +1,11 @@
+@font-face {
+  font-family: Raleway;
+  src: url("../asset/Raleway-Regular.woff2");
+}
 html {
   background-color: #666;
   color: peachpuff;
+  font-family: Raleway, sans-serif;
 }
 
 body {
