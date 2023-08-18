@@ -14,10 +14,23 @@ let students = [
 	"Cecil",
 	"Don Bastiano João Coimbra de la Coronilla y Azevedo",
 ];
+/**
+ * a jelenlévő tanulók listája
+ */
 let studentsPresent = ref(students.slice());
+
+/**
+ * megnézi, hogy jelen van e a diák
+ * @param student a diák
+ */
+
 function studentIsPresent(student: string): boolean {
 	return contains(studentsPresent.value, student);
 }
+/**
+ * átállítja a diák állapotát jelenlévőről hiányzóra, vagy vissza
+ * @param student a diák
+ */
 function toggleStudent(student: string): void {
 	let isPresent = studentIsPresent(student);
 	if (isPresent) {
