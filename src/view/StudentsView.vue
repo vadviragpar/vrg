@@ -6,6 +6,7 @@ import uncheckIcon from "../asset/checked=no.svg?raw";
 import { contains } from "@/fun/contains";
 import { removeStudent } from "@/fun/removeStudent";
 import { ref } from "vue";
+import peopleIcon from "../asset/People.svg?raw";
 
 let students = [
 	"Uzumaki Naruto",
@@ -57,10 +58,10 @@ function toggleAllStudents() {
 		<div class="header-label">Tanulók listája</div>
 		<div class="header-buttons">
 			<button class="header-button" @click="toggleAllStudents">
-				<span v-html="checkAllIcon"></span>
+				<span class="icon" v-html="checkAllIcon"></span>
 			</button>
 			<button class="header-button">
-				<span v-html="plusIcon"></span>
+				<span class="icon" v-html="plusIcon"></span>
 			</button>
 		</div>
 	</div>
@@ -73,20 +74,30 @@ function toggleAllStudents() {
 		<div class="student" v-for="student of students">
 			<button class="student-name">{{ student }}</button>
 			<button class="student-check" @click="toggleStudent(student)">
-				<span v-html="checkIcon" v-if="studentIsPresent(student)"></span>
-				<span v-html="uncheckIcon" v-else></span>
+				<span
+					class="icon small"
+					v-html="checkIcon"
+					v-if="studentIsPresent(student)"
+				></span>
+				<span class="icon small" v-html="uncheckIcon" v-else></span>
 			</button>
 		</div>
 	</div>
+	<button class="action-button">
+		<span class="icon large" v-html="peopleIcon"></span>
+	</button>
 </template>
 
 <style scoped>
 .header {
-	background-color: #010520;
+	background-color: lch(10 50 260);
 	color: white;
 	display: flex;
 	align-items: center;
 	flex-flow: row wrap;
+	position: sticky;
+	top: 0;
+	box-shadow: 0 2px 10px black;
 }
 
 .header-label {
@@ -94,7 +105,7 @@ function toggleAllStudents() {
 	white-space: nowrap; */
 	overflow-wrap: break-word;
 	overflow: hidden;
-	padding: 9.8px;
+	padding: 10px;
 }
 
 .header-buttons {
@@ -103,25 +114,32 @@ function toggleAllStudents() {
 	flex-flow: row wrap;
 }
 .header-button {
-	background-color: #010520;
+	background-color: lch(10 50 260);
 	color: white;
 	font-family: inherit;
 	font-size: inherit;
 	border: 0;
-	padding: 5px;
+	padding: 10px;
 }
 .header-button:hover {
-	background-color: #010a3e;
+	background-color: lch(20 50 260);
+	/* filter: brightness(1.4); */
 }
 .header-button:active {
-	background-color: #040f61;
+	background-color: lch(2 50 260);
+	/* filter: brightness(0.6); */
 }
 
 .info {
 	background-color: #2d211a;
 	color: white;
 	font-size: 18px;
-	padding: 9.8px;
+	padding: 10px;
+}
+
+.list {
+	padding-bottom: 78px;
+	background-color: #ff7d2d;
 }
 
 .student {
@@ -137,7 +155,7 @@ function toggleAllStudents() {
 	font-size: inherit;
 	font-family: inherit;
 	border: 0;
-	padding: 9.8px;
+	padding: 10px;
 	overflow-wrap: break-word;
 	overflow: hidden;
 }
@@ -154,7 +172,7 @@ function toggleAllStudents() {
 .student-check {
 	background-color: #ff7d2d;
 	border: 0;
-	padding: 5px;
+	padding: 10px;
 	color: #2d211a;
 }
 .student-check:hover {
@@ -162,5 +180,23 @@ function toggleAllStudents() {
 }
 .student-check:active {
 	color: #900022;
+}
+
+.action-button {
+	background-color: lch(10 50 260);
+	color: white;
+	border: 0;
+	padding: 10px;
+	border-radius: 15px;
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+}
+.action-button:hover {
+	background-color: lch(20 50 260);
+}
+.action-button:active {
+	background-color: lch(2 50 260);
 }
 </style>

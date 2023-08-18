@@ -7,14 +7,26 @@ html {
 	color: peachpuff;
 	font-family: Raleway, sans-serif;
 	font-size: 24px;
+	line-height: calc(32 / 24);
 }
 
 body {
 	margin: 0;
 }
 
-svg {
+.icon {
+	display: flex;
+}
+.icon > svg {
 	fill: currentColor;
 	width: 32px;
 	height: 32px;
+}
+.icon.large > svg {
+	width: 48px;
+	height: 48px;
+}
+.icon.small > svg {
+	width: 24px;
+	height: 24px;
 }
