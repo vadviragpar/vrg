@@ -1,13 +1,20 @@
 @font-face {
-  font-family: Raleway;
-  src: url("../asset/Raleway-Regular.woff2");
+	font-family: Raleway;
+	src: url("../asset/Raleway-Regular.woff2");
 }
 html {
-  background-color: #666;
-  color: peachpuff;
-  font-family: Raleway, sans-serif;
+	background-color: #666;
+	color: peachpuff;
+	font-family: Raleway, sans-serif;
+	font-size: 24px;
 }
 
 body {
-  margin: 0;
+	margin: 0;
+}
+
+svg {
+	fill: currentColor;
+	width: 32px;
+	height: 32px;
 }
