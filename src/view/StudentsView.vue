@@ -64,6 +64,11 @@ function toggleAllStudents() {
 			</button>
 		</div>
 	</div>
+	<div class="info">
+		összes tanuló: {{ students.length }} <br />jelenlévő tanulók:
+		{{ studentsPresent.length }} <br />hiányzók:
+		{{ students.length - studentsPresent.length }}
+	</div>
 	<div class="list">
 		<div class="student" v-for="student of students">
 			<button class="student-name">{{ student }}</button>
@@ -111,6 +116,14 @@ function toggleAllStudents() {
 .header-button:active {
 	background-color: #040f61;
 }
+
+.info {
+	background-color: #2d211a;
+	color: white;
+	font-size: 18px;
+	padding: 9.8px;
+}
+
 .student {
 	background-color: #ff7d2d;
 	color: black;
