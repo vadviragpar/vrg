@@ -39,13 +39,24 @@ function toggleStudent(student: string): void {
 		studentsPresent.value.push(student);
 	}
 }
+
+/**
+ * átállítja az összes diák állapotát jelenlévőre, ha volt hiányzó. egyéb esetben pedig hiányzóra */
+
+function toggleAllStudents() {
+	if (studentsPresent.value.length < students.length) {
+		studentsPresent.value = students.slice();
+	} else {
+		studentsPresent.value = [];
+	}
+}
 </script>
 
 <template>
 	<div class="header">
 		<div class="header-label">Tanulók listája</div>
 		<div class="header-buttons">
-			<button class="header-button">
+			<button class="header-button" @click="toggleAllStudents">
 				<span v-html="checkAllIcon"></span>
 			</button>
 			<button class="header-button">
