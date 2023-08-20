@@ -8,6 +8,12 @@ import { removeStudent } from "@/fun/removeStudent";
 import { ref } from "vue";
 import peopleIcon from "../asset/People.svg?raw";
 import { range } from "@/fun/range";
+import { useRouter } from "vue-router";
+
+/**
+ * ideteleportáljuk a routert, hogy navigálhassunk az oldalak között
+ */
+const router = useRouter();
 
 let students = [
 	"Uzumaki Naruto",
@@ -53,6 +59,14 @@ function toggleAllStudents() {
 		studentsPresent.value = [];
 	}
 }
+/**
+ * átmegyünk az addStudents oldalra úgy, hogy a visszagomb is működjön
+ */
+function goToAddStudents() {
+	router.push({
+		name: "addStudents",
+	});
+}
 </script>
 
 <template>
@@ -62,7 +76,7 @@ function toggleAllStudents() {
 			<button class="header-button" @click="toggleAllStudents">
 				<span class="icon" v-html="checkAllIcon"></span>
 			</button>
-			<button class="header-button">
+			<button class="header-button" @click="goToAddStudents">
 				<span class="icon" v-html="plusIcon"></span>
 			</button>
 		</div>

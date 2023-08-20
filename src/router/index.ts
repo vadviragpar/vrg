@@ -1,3 +1,4 @@
+import AddStudentsView from "@/view/AddStudentsView.vue";
 import StudentsView from "@/view/StudentsView.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
@@ -8,6 +9,11 @@ const router = createRouter({
 			path: "/",
 			name: "students",
 			component: StudentsView,
+		},
+		{
+			path: "/add-students",
+			name: "addStudents",
+			component: AddStudentsView,
 		},
 	],
 });
