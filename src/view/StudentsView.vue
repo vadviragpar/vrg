@@ -7,6 +7,7 @@ import { contains } from "@/fun/contains";
 import { removeStudent } from "@/fun/removeStudent";
 import { ref } from "vue";
 import peopleIcon from "../asset/People.svg?raw";
+import { range } from "@/fun/range";
 
 let students = [
 	"Uzumaki Naruto",
@@ -14,6 +15,7 @@ let students = [
 	"Budha",
 	"Cecil",
 	"Don Bastiano João Coimbra de la Coronilla y Azevedo",
+	...range(25).map((n) => "diák " + n),
 ];
 /**
  * a jelenlévő tanulók listája
@@ -140,6 +142,7 @@ function toggleAllStudents() {
 .list {
 	padding-bottom: 78px;
 	background-color: #ff7d2d;
+	flex: 1;
 }
 
 .student {
