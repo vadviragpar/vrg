@@ -61,6 +61,15 @@ function goToAddStudents() {
 		name: "addStudents",
 	});
 }
+
+function goToEditStudent(student: string) {
+	router.push({
+		name: "editStudent",
+		params: {
+			name: student,
+		},
+	});
+}
 </script>
 
 <template>
@@ -82,7 +91,9 @@ function goToAddStudents() {
 	</div>
 	<div class="list">
 		<div class="student" v-for="student of students">
-			<button class="student-name">{{ student }}</button>
+			<button class="student-name" @click="goToEditStudent(student)">
+				{{ student }}
+			</button>
 			<button class="student-check" @click="toggleStudent(student)">
 				<span
 					class="icon small"

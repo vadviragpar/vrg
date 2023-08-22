@@ -102,3 +102,13 @@ body {
 .action-button:active {
 	background-color: lch(2 50 260);
 }
+.form {
+	padding: 10px;
+	display: flex;
+	flex-flow: column;
+	gap: 5px;
+}
+
+.form-label {
+	font-size: 20px;
+}
