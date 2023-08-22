@@ -9,20 +9,14 @@ import { ref } from "vue";
 import peopleIcon from "../asset/People.svg?raw";
 import { range } from "@/fun/range";
 import { useRouter } from "vue-router";
+import { loadStudents } from "@/fun/loadStudents";
 
 /**
  * ideteleportáljuk a routert, hogy navigálhassunk az oldalak között
  */
 const router = useRouter();
 
-let students = [
-	"Uzumaki Naruto",
-	"Terry Pratchett",
-	"Budha",
-	"Cecil",
-	"Don Bastiano João Coimbra de la Coronilla y Azevedo",
-	...range(25).map((n) => "diák " + n),
-];
+let students = loadStudents();
 /**
  * a jelenlévő tanulók listája
  */
@@ -105,47 +99,6 @@ function goToAddStudents() {
 </template>
 
 <style scoped>
-.header {
-	background-color: lch(10 50 260);
-	color: white;
-	display: flex;
-	align-items: center;
-	flex-flow: row wrap;
-	position: sticky;
-	top: 0;
-	box-shadow: 0 2px 10px black;
-}
-
-.header-label {
-	/* text-overflow: ellipsis;
-	white-space: nowrap; */
-	overflow-wrap: break-word;
-	overflow: hidden;
-	padding: 10px;
-}
-
-.header-buttons {
-	margin-left: auto;
-	display: flex;
-	flex-flow: row wrap;
-}
-.header-button {
-	background-color: lch(10 50 260);
-	color: white;
-	font-family: inherit;
-	font-size: inherit;
-	border: 0;
-	padding: 10px;
-}
-.header-button:hover {
-	background-color: lch(20 50 260);
-	/* filter: brightness(1.4); */
-}
-.header-button:active {
-	background-color: lch(2 50 260);
-	/* filter: brightness(0.6); */
-}
-
 .info {
 	background-color: #2d211a;
 	color: white;
@@ -197,23 +150,5 @@ function goToAddStudents() {
 }
 .student-check:active {
 	color: #900022;
-}
-
-.action-button {
-	background-color: lch(10 50 260);
-	color: white;
-	border: 0;
-	padding: 10px;
-	border-radius: 15px;
-	position: fixed;
-	right: 10px;
-	bottom: 10px;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
-}
-.action-button:hover {
-	background-color: lch(20 50 260);
-}
-.action-button:active {
-	background-color: lch(2 50 260);
 }
 </style>
