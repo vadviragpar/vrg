@@ -8,6 +8,7 @@ import arrowLeftIcon from "../asset/ArrowLeft.svg?raw";
 import checkIcon from "../asset/Check.svg?raw";
 import binIcon from "bootstrap-icons/icons/trash.svg?raw";
 import { removeStudent } from "@/fun/removeStudent";
+import HeaderComp from "@/comp/HeaderComp.vue";
 
 /**
  * ideteleportáljuk a routert, hogy navigálhassunk az oldalak között
@@ -41,17 +42,14 @@ function remove() {
 </script>
 
 <template>
-	<div class="header">
-		<button class="header-button" @click="goBack">
-			<span class="icon" v-html="arrowLeftIcon"></span>
-		</button>
-		<div class="header-label">Tanuló szerkesztése</div>
-		<div class="header-buttons">
+	<HeaderComp>
+		<template v-slot:title>Tanuló szerkesztése</template>
+		<template v-slot:right-buttons>
 			<button class="header-button" @click="remove">
 				<span class="icon" v-html="binIcon"></span>
 			</button>
-		</div>
-	</div>
+		</template>
+	</HeaderComp>
 	<div class="form">
 		<div class="form-label">Tanuló neve</div>
 		<input class="name-input" v-model="studentName" />

@@ -10,6 +10,7 @@ import peopleIcon from "../asset/People.svg?raw";
 import { range } from "@/fun/range";
 import { useRouter } from "vue-router";
 import { loadStudents } from "@/fun/loadStudents";
+import HeaderComp from "@/comp/HeaderComp.vue";
 
 /**
  * ideteleportáljuk a routert, hogy navigálhassunk az oldalak között
@@ -73,17 +74,17 @@ function goToEditStudent(student: string) {
 </script>
 
 <template>
-	<div class="header">
-		<div class="header-label">Tanulók listája</div>
-		<div class="header-buttons">
+	<HeaderComp hide-back>
+		<template v-slot:title>Tanulók listája</template>
+		<template v-slot:right-buttons>
 			<button class="header-button" @click="toggleAllStudents">
 				<span class="icon" v-html="checkAllIcon"></span>
 			</button>
 			<button class="header-button" @click="goToAddStudents">
 				<span class="icon" v-html="plusIcon"></span>
 			</button>
-		</div>
-	</div>
+		</template>
+	</HeaderComp>
 	<div class="info">
 		összes tanuló: {{ students.length }} <br />jelenlévő tanulók:
 		{{ studentsPresent.length }} <br />hiányzók:

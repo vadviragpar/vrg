@@ -7,6 +7,7 @@ import { splitToLines } from "@/fun/splitToLines";
 import { saveStudents } from "@/fun/saveStudents";
 import { loadStudents } from "@/fun/loadStudents";
 import { ref } from "vue";
+import HeaderComp from "@/comp/HeaderComp.vue";
 
 /**
  * ideteleportáljuk a routert, hogy navigálhassunk az oldalak között
@@ -27,12 +28,9 @@ function save() {
 </script>
 
 <template>
-	<div class="header">
-		<button class="header-button" @click="goBack">
-			<span class="icon" v-html="arrowLeftIcon"></span>
-		</button>
-		<div class="header-label">Felvétel</div>
-	</div>
+	<HeaderComp>
+		<template v-slot:title>Felvétel</template>
+	</HeaderComp>
 	<div class="form">
 		<div class="form-label">Tanulók neve</div>
 		<textarea
