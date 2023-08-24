@@ -2,7 +2,7 @@
 import { useRouter } from "vue-router";
 import arrowLeftIcon from "bootstrap-icons/icons/arrow-left.svg?raw";
 
-defineProps<{
+const props = defineProps<{
 	hideBack?: boolean;
 }>();
 

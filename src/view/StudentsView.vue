@@ -74,7 +74,7 @@ function goToEditStudent(student: string) {
 </script>
 
 <template>
-	<HeaderComp hide-back>
+	<HeaderComp hideBack>
 		<template v-slot:title>Tanulók listája</template>
 		<template v-slot:right-buttons>
 			<button class="header-button" @click="toggleAllStudents">
