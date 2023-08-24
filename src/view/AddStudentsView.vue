@@ -34,7 +34,7 @@ function save() {
 	<div class="form">
 		<div class="form-label">Tanulók neve</div>
 		<textarea
-			class="students-input"
+			class="input students-input"
 			rows="10"
 			v-model="studentsString"
 		></textarea>
@@ -46,15 +46,6 @@ function save() {
 
 <style scoped>
 .students-input {
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
-	background-color: #35363f;
-	color: white;
-	border: 0;
-	border-radius: 5px;
 	resize: vertical;
-	width: 100%;
-	padding: 10px;
 }
 </style>

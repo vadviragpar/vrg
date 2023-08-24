@@ -71,6 +71,15 @@ function goToEditStudent(student: string) {
 		},
 	});
 }
+
+function goToGroupSettings() {
+	router.push({
+		name: "groupSettings",
+		params: {
+			students: studentsPresent.value,
+		},
+	});
+}
 </script>
 
 <template>
@@ -85,7 +94,7 @@ function goToEditStudent(student: string) {
 			</button>
 		</template>
 	</HeaderComp>
-	<div class="info">
+	<div class="info small">
 		összes tanuló: {{ students.length }} <br />jelenlévő tanulók:
 		{{ studentsPresent.length }} <br />hiányzók:
 		{{ students.length - studentsPresent.length }}
@@ -105,7 +114,7 @@ function goToEditStudent(student: string) {
 			</button>
 		</div>
 	</div>
-	<button class="action-button">
+	<button class="action-button" @click="goToGroupSettings">
 		<span class="icon large" v-html="peopleIcon"></span>
 	</button>
 </template>
@@ -114,7 +123,7 @@ function goToEditStudent(student: string) {
 .info {
 	background-color: #2d211a;
 	color: white;
-	font-size: 18px;
+
 	padding: 10px;
 }
 

@@ -52,23 +52,11 @@ function remove() {
 	</HeaderComp>
 	<div class="form">
 		<div class="form-label">Tanuló neve</div>
-		<input class="name-input" v-model="studentName" />
+		<input class="input" v-model="studentName" />
 	</div>
 	<button class="action-button" @click="save">
 		<span class="icon large" v-html="checkIcon"></span>
 	</button>
 </template>
 
-<style scoped>
-.name-input {
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
-	background-color: #35363f;
-	color: white;
-	border: 0;
-	border-radius: 5px;
-	width: 100%;
-	padding: 10px;
-}
-</style>
+<style scoped></style>
