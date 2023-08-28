@@ -40,6 +40,8 @@ let studentsPerGroupInputSanitized = computed(() => {
 
 function onStudentsPerGroupChange(event: Event) {
 	// ez az esemény akkor következik be, ha a felhasználó megváltoztatta az input értékét és aztán kikattintott az inputból
+	// A studentsPerGroup értékét beállítjuk, a kijavított értékre
+	studentsPerGroup.value = studentsPerGroupInputSanitized.value;
 	// visszaállítjuk az input tartalmát az utolsó szabályos értékre
 	studentsPerGroupInput.value = studentsPerGroupInputSanitized.value + "";
 }
@@ -65,7 +67,7 @@ function onStudentsPerGroupChange(event: Event) {
 		</div>
 		<div class="small info">
 			X {{ studentsPerGroupInputSanitized }} fős csoport és<br />
-			Y {{ studentsPerGroup - 1 }} fős csoport
+			Y {{ studentsPerGroupInputSanitized - 1 }} fős csoport
 		</div>
 	</div>
 	<button class="action-button">
