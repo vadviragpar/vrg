@@ -5,6 +5,7 @@ import checkIcon from "bootstrap-icons/icons/check-lg.svg?raw";
 import { useRoute, useRouter } from "vue-router";
 import { studentsPerGroupToGroupCount } from "@/fun/studentsPerGroupToGroupCount";
 import { groupCountToStudentsPerGroup } from "@/fun/groupCountToStudentsPerGroup";
+import { groupStudents } from "@/fun/groupStudents";
 
 let router = useRouter();
 let route = useRoute();
@@ -99,6 +100,11 @@ let info = computed(() =>
 		groupCount: groupCountInputSanitized.value,
 	})
 );
+
+function submit() {
+	let groups = groupStudents(students, groupCount.value);
+	router.push({ name: "groups", params: { groups: JSON.stringify(groups) } });
+}
 </script>
 
 <template>
@@ -134,7 +140,7 @@ let info = computed(() =>
 			</template>
 		</div>
 	</div>
-	<button class="action-button">
+	<button class="action-button" @click="submit">
 		<span class="icon large" v-html="checkIcon"></span>
 	</button>
 </template>
