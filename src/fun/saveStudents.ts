@@ -1,3 +1,6 @@
 export function saveStudents(students: string[]) {
-	localStorage.setItem("students", JSON.stringify(students));
+	let studentsSorted = students
+		.slice()
+		.sort((a, b) => a.localeCompare(b, "hu"));
+	localStorage.setItem("students", JSON.stringify(studentsSorted));
 }
