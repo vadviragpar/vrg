@@ -4,6 +4,7 @@ import { createPinia } from "pinia";
 import { createApp } from "vue";
 
 import App from "./App.vue";
+import { measureKeyboardHeight } from "./fun/measureKeyboardHeight";
 import router from "./router";
 
 const app = createApp(App);
@@ -19,3 +20,4 @@ if ("serviceWorker" in navigator) {
 	});
 }
 
+measureKeyboardHeight();
