@@ -39,6 +39,11 @@ function remove() {
 		goBack();
 	}
 }
+function onKeyUp(event: KeyboardEvent) {
+	if (event.key == "Enter") {
+		save();
+	}
+}
 </script>
 
 <template>
@@ -52,7 +57,7 @@ function remove() {
 	</HeaderComp>
 	<div class="form">
 		<div class="form-label">Tanuló neve</div>
-		<input class="input" v-model="studentName" />
+		<input class="input" v-model="studentName" @keyup="onKeyUp" />
 	</div>
 	<button class="action-button" @click="save">
 		<span class="icon large" v-html="checkIcon"></span>

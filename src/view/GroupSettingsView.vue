@@ -105,6 +105,11 @@ function submit() {
 	let groups = groupStudents(students, groupCount.value);
 	router.push({ name: "groups", params: { groups: JSON.stringify(groups) } });
 }
+function onKeyUp(event: KeyboardEvent) {
+	if (event.key == "Enter") {
+		submit();
+	}
+}
 </script>
 
 <template>
@@ -119,6 +124,7 @@ function submit() {
 				v-model="groupCountInput"
 				@change="onGroupCountChange"
 				@input="onGroupCountInput"
+				@keyup="onKeyUp"
 			/>
 			<div>csoport létrehozása</div>
 		</div>
@@ -128,6 +134,7 @@ function submit() {
 				v-model="studentsPerGroupInput"
 				@change="onStudentsPerGroupChange"
 				@input="onStudentsPerGroupInput"
+				@keyup="onKeyUp"
 			/>
 			<div>fős csoportokba rendezés</div>
 		</div>
